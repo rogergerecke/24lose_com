@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    container_name: lose24com
+    image: mysql:5.7
+    env_file:
+      - .env.local
+    environment:
+      - MYSQL_ROOT_PASSWORD="${MYSQL_ROOT_PASSWORD}"
+      - MYSQL_DATABASE="${MYSQL_DATABASE}"
+      - MYSQL_USER="${MYSQL_USER}"
+      - MYSQL_PASSWORD="${MYSQL_PASSWORD}"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ../Docker/mysql/mycustom.cnf:/etc/mysql/conf.d/custom.cnf
